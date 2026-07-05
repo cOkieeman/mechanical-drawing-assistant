@@ -1,0 +1,20 @@
+{
+  "job_name": "vul-立柱安装筒-live",
+  "part": {
+    "name": "立柱安装筒",
+    "category": "turned_mounting_sleeve",
+    "source_model": "I:/codex-Fa/Fa-v1.9/9.个人工作/vul/立柱安装筒.SLDPRT",
+    "source_dwg": "I:/codex-Fa/Fa-v1.9/9.个人工作/vul/立柱安装筒-AL6061-数量4.dwg",
+    "material": "AL6061",
+    "process": ["turning", "milling"],
+    "notes": ["用于 SolidWorks live 三视图出图测试；不覆盖原始模型或原始 DWG。"]
+  },
+  "drawing_standard": "GB",
+  "feature_templates": ["basic_mechanical"],
+  "views": ["front", "top", "left"],
+  "output": {
+    "workdir": "output/vul-lizhu",
+    "drawing_basename": "lizhu-anzhuangtong-live-three-view",
+    "export_formats": ["slddrw", "pdf", "dwg", "dxf"]
+  }
+}

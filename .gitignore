@@ -1,0 +1,43 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ty/
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.env.*
+
+# Local tool caches
+.tmp/
+.uv-cache-render/
+.uv/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# Generated pipeline output
+output/
+
+# External reference repositories cloned by scripts/bootstrap_external.ps1
+external/
+
+# CAD binaries and generated drawings are usually large/proprietary.
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.sldprt
+*.sldasm
+*.slddrw
+*.dwg
+*.dxf
+*.pdf

@@ -1,0 +1,54 @@
+{
+  "name": "pulley",
+  "description": "带轮/皮带轮类零件的第一版标注意图。",
+  "dimension_intents": [
+    {
+      "id": "pulley_outer_diameter",
+      "label": "带轮外径",
+      "feature_type": "turned_outer_diameter",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "优先在主视图或剖视图标注直径符号。"
+    },
+    {
+      "id": "pulley_bore_diameter",
+      "label": "中心孔直径及配合",
+      "feature_type": "bore",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003", "GB/T 4458.5-2003"],
+      "placement_hint": "孔径、公差/配合应靠近剖视或孔轴线。"
+    },
+    {
+      "id": "pulley_groove_profile",
+      "label": "轮槽宽度、角度和位置",
+      "feature_type": "belt_groove",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "槽型尺寸优先放在剖视图，必要时加局部放大。"
+    },
+    {
+      "id": "pulley_keyway",
+      "label": "键槽宽度、深度和位置",
+      "feature_type": "keyway",
+      "required": false,
+      "standard_refs": ["GB/T 4458.4-2003", "GB/T 4458.5-2003"],
+      "placement_hint": "键槽应在能表达截面的位置标注。"
+    },
+    {
+      "id": "pulley_threaded_hole",
+      "label": "顶丝孔/螺纹孔规格和位置",
+      "feature_type": "threaded_hole",
+      "required": false,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "螺纹规格、深度、数量和角度位置应合并表达。"
+    },
+    {
+      "id": "pulley_runout",
+      "label": "关键外圆或端面对中心孔的跳动",
+      "feature_type": "geometric_tolerance",
+      "required": false,
+      "standard_refs": ["GB/T 1184-1996"],
+      "placement_hint": "只有对装配或旋转精度有要求时启用。"
+    }
+  ]
+}

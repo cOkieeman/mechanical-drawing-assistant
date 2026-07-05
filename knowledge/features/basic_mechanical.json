@@ -1,0 +1,47 @@
+{
+  "name": "basic_mechanical",
+  "description": "通用机加工图基础标注意图。",
+  "dimension_intents": [
+    {
+      "id": "overall_length_width_height",
+      "label": "外形总长/总宽/总高或厚度",
+      "feature_type": "overall_size",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "优先放在视图外侧，避免形成封闭尺寸链。",
+      "notes": ["第一版只生成意图，真实尺寸值必须来自 CAD 几何。"]
+    },
+    {
+      "id": "main_datums",
+      "label": "主要加工/装配基准",
+      "feature_type": "datum",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "从设计基准或加工基准引出尺寸。"
+    },
+    {
+      "id": "chamfer_and_radius",
+      "label": "倒角和圆角",
+      "feature_type": "edge_treatment",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "集中标注常规倒角，关键倒角单独标出。"
+    },
+    {
+      "id": "general_tolerance_note",
+      "label": "未注尺寸公差说明",
+      "feature_type": "tolerance_note",
+      "required": true,
+      "standard_refs": ["GB/T 1804-2000", "GB/T 1184-1996"],
+      "placement_hint": "放入技术要求或标题栏附近。"
+    },
+    {
+      "id": "surface_roughness",
+      "label": "粗糙度要求",
+      "feature_type": "surface_finish",
+      "required": false,
+      "standard_refs": [],
+      "placement_hint": "关键加工面单独标，普通面可用统一说明。"
+    }
+  ]
+}

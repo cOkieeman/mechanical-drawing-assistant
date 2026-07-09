@@ -18,6 +18,12 @@ class KnowledgeBase:
             raise ValueError("knowledge/standards/gb_index.json: `standards` must be a list.")
         return [standard for standard in standards if isinstance(standard, dict)]
 
+    def load_standard_profile(self, drawing_standard: str) -> JsonObject | None:
+        profile_name = self._standard_profile_name(drawing_standard)
+        if not profile_name:
+            return None
+        return self._read_json(self.root / "standards" / "profiles" / f"{profile_name}.json")
+
     def load_dimension_intents(self, template_names: list[str]) -> list[DimensionIntent]:
         intents: list[DimensionIntent] = []
         for template_name in template_names:
@@ -41,3 +47,9 @@ class KnowledgeBase:
         if not isinstance(data, dict):
             raise ValueError(f"Knowledge file must contain a JSON object: {path}")
         return data
+
+    def _standard_profile_name(self, drawing_standard: str) -> str | None:
+        normalized = drawing_standard.strip().upper()
+        if normalized in {"GB", "GB_MECHANICAL_DRAWING"}:
+            return "gb_mechanical_drawing"
+        return None

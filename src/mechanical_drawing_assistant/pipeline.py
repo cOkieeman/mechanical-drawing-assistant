@@ -9,6 +9,7 @@ from mechanical_drawing_assistant.adapters.solidworks import SolidWorksAdapter
 from mechanical_drawing_assistant.knowledge import KnowledgeBase
 from mechanical_drawing_assistant.models import DrawingJob, DrawingPlan, JsonObject, path_exists
 from mechanical_drawing_assistant.review import render_review_markdown, review_plan
+from mechanical_drawing_assistant.view_planner import plan_views
 
 
 def load_job(path: Path) -> DrawingJob:
@@ -37,12 +38,16 @@ def build_plan(job: DrawingJob, knowledge: KnowledgeBase) -> DrawingPlan:
         str(output_root / f"{job.output.drawing_basename}.{extension.lower()}")
         for extension in job.output.export_formats
     ]
+    standard_profile = knowledge.load_standard_profile(job.drawing_standard)
+    view_plan = plan_views(job, standard_profile)
 
     return DrawingPlan(
         job_name=job.job_name,
         part=job.part,
-        views=job.views,
+        views=[str(view) for view in view_plan["views"]],
+        view_plan=view_plan,
         standards=knowledge.load_standard_index(),
+        standard_profile=standard_profile,
         dimension_intents=knowledge.load_dimension_intents(templates),
         planned_outputs=planned_outputs,
         warnings=warnings,
@@ -62,6 +67,8 @@ def export_plan(plan: DrawingPlan, output_dir: Path, dry_run: bool = True) -> Js
         "steps": [],
     }
 
+    model_result = solidworks.inspect_model(plan.part.source_model, dry_run=dry_run)
+    export_manifest["steps"].append(model_result)
     solidworks_create_result = solidworks.create_three_view_drawing(plan, dry_run=dry_run)
     export_manifest["steps"].append(solidworks_create_result)
     export_manifest["steps"].append(solidworks.export_outputs(plan, dry_run=dry_run))
@@ -70,6 +77,7 @@ def export_plan(plan: DrawingPlan, output_dir: Path, dry_run: bool = True) -> Js
             plan,
             dry_run=dry_run,
             solidworks_result=solidworks_create_result,
+            model_result=model_result,
         )
     )
 
@@ -92,6 +100,9 @@ def run_pipeline(
 
     manifest = export_plan(plan, output_dir, dry_run=dry_run)
     write_json(output_dir / "export_manifest.json", manifest)
+    model_manifest = extract_model_manifest(manifest)
+    if model_manifest:
+        write_json(output_dir / "model_manifest.json", model_manifest)
     annotation_manifest = extract_annotation_manifest(manifest)
     if annotation_manifest:
         write_json(output_dir / "annotation_manifest.json", annotation_manifest)
@@ -121,4 +132,16 @@ def extract_annotation_manifest(export_manifest: JsonObject) -> JsonObject | Non
         annotation = step.get("dxf_annotation")
         if isinstance(annotation, dict) and annotation.get("status") == "annotated":
             return annotation
+    return None
+
+
+def extract_model_manifest(export_manifest: JsonObject) -> JsonObject | None:
+    steps = export_manifest.get("steps")
+    if not isinstance(steps, list):
+        return None
+    for step in steps:
+        if not isinstance(step, dict):
+            continue
+        if step.get("action") == "inspect_model":
+            return step
     return None

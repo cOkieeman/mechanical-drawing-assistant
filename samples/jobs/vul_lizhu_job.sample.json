@@ -10,7 +10,7 @@
     "notes": ["用于 SolidWorks live 三视图出图测试；不覆盖原始模型或原始 DWG。"]
   },
   "drawing_standard": "GB",
-  "feature_templates": ["basic_mechanical"],
+  "feature_templates": ["basic_mechanical", "turned_mounting_sleeve"],
   "views": ["front", "top", "left"],
   "output": {
     "workdir": "output/vul-lizhu",

@@ -7,15 +7,34 @@ from mechanical_drawing_assistant.adapters.autocad import AutoCadAdapter
 from mechanical_drawing_assistant.adapters.dxf import DxfAdapter
 from mechanical_drawing_assistant.adapters.solidworks import SolidWorksAdapter
 from mechanical_drawing_assistant.models import JsonObject
+from mechanical_drawing_assistant.runtime import (
+    default_knowledge_path,
+    default_samples_path,
+    runtime_info,
+)
 
 
 def diagnose_environment(project_root: Path) -> JsonObject:
     external_root = project_root / "external"
+    knowledge_path = default_knowledge_path()
+    samples_path = default_samples_path()
     return {
+        "runtime": runtime_info(),
         "python_packages": {
             "mcp": module_available("mcp"),
             "pywin32": module_available("win32com"),
             "ezdxf": module_available("ezdxf"),
+            "pyinstaller": module_available("PyInstaller"),
+        },
+        "resources": {
+            "knowledge": {
+                "path": str(knowledge_path),
+                "present": knowledge_path.exists(),
+            },
+            "samples": {
+                "path": str(samples_path),
+                "present": samples_path.exists(),
+            },
         },
         "adapters": {
             "solidworks": SolidWorksAdapter().diagnose(),

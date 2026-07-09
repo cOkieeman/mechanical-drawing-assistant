@@ -56,7 +56,7 @@ class DrawingJob:
     output: OutputSpec
     drawing_standard: str = "GB"
     feature_templates: list[str] = field(default_factory=list)
-    views: list[str] = field(default_factory=lambda: DEFAULT_GB_THREE_VIEWS.copy())
+    views: list[str] | None = None
 
     @classmethod
     def from_mapping(cls, data: JsonObject) -> DrawingJob:
@@ -66,7 +66,7 @@ class DrawingJob:
             output=OutputSpec.from_mapping(required_object(data, "output")),
             drawing_standard=optional_text(data, "drawing_standard") or "GB",
             feature_templates=list_of_text(data.get("feature_templates", []), "feature_templates"),
-            views=list_of_text(data.get("views", DEFAULT_GB_THREE_VIEWS), "views"),
+            views=list_of_text(data["views"], "views") if "views" in data else None,
         )
 
 
@@ -80,6 +80,9 @@ class DimensionIntent:
     standard_refs: list[str] = field(default_factory=list)
     placement_hint: str | None = None
     notes: list[str] = field(default_factory=list)
+    verification: str = "dxf"
+    coverage_labels: list[str] = field(default_factory=list)
+    coverage_mode: str = "any"
 
     @classmethod
     def from_mapping(cls, data: JsonObject, source: str) -> DimensionIntent:
@@ -92,6 +95,12 @@ class DimensionIntent:
             standard_refs=list_of_text(data.get("standard_refs", []), f"{source}.standard_refs"),
             placement_hint=optional_text(data, "placement_hint"),
             notes=list_of_text(data.get("notes", []), f"{source}.notes"),
+            verification=optional_text(data, "verification") or "dxf",
+            coverage_labels=list_of_text(
+                data.get("coverage_labels", []),
+                f"{source}.coverage_labels",
+            ),
+            coverage_mode=optional_text(data, "coverage_mode") or "any",
         )
 
     def to_mapping(self) -> JsonObject:
@@ -104,6 +113,9 @@ class DimensionIntent:
             "standard_refs": self.standard_refs,
             "placement_hint": self.placement_hint,
             "notes": self.notes,
+            "verification": self.verification,
+            "coverage_labels": self.coverage_labels,
+            "coverage_mode": self.coverage_mode,
         }
 
 
@@ -112,7 +124,9 @@ class DrawingPlan:
     job_name: str
     part: PartInput
     views: list[str]
+    view_plan: JsonObject
     standards: list[JsonObject]
+    standard_profile: JsonObject | None
     dimension_intents: list[DimensionIntent]
     planned_outputs: list[str]
     warnings: list[str] = field(default_factory=list)
@@ -130,7 +144,9 @@ class DrawingPlan:
                 "notes": self.part.notes,
             },
             "views": self.views,
+            "view_plan": self.view_plan,
             "standards": self.standards,
+            "standard_profile": self.standard_profile,
             "dimension_intents": [intent.to_mapping() for intent in self.dimension_intents],
             "planned_outputs": self.planned_outputs,
             "warnings": self.warnings,

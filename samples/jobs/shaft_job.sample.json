@@ -1,0 +1,19 @@
+{
+  "job_name": "shaft-rule-sample",
+  "part": {
+    "name": "轴类样例",
+    "category": "shaft",
+    "source_model": null,
+    "source_dwg": null,
+    "material": "",
+    "process": ["turning", "milling"],
+    "notes": ["用于轴类 dimension_intents 和视图规划规则验证。"]
+  },
+  "drawing_standard": "GB",
+  "feature_templates": ["basic_mechanical", "shaft"],
+  "output": {
+    "workdir": "output/shaft-rule-sample",
+    "drawing_basename": "shaft-rule-sample",
+    "export_formats": ["dxf", "pdf"]
+  }
+}

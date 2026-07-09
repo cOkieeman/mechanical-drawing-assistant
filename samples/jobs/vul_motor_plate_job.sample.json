@@ -1,0 +1,20 @@
+{
+  "job_name": "vul-电机安装板-live",
+  "part": {
+    "name": "电机安装板",
+    "category": "motor_mounting_plate",
+    "source_model": "I:/codex-Fa/Fa-v1.9/9.个人工作/vul/电机安装板.SLDPRT",
+    "source_dwg": null,
+    "material": "",
+    "process": ["milling", "drilling", "tapping"],
+    "notes": ["用于 SolidWorks 参数化模型检查和 live 三视图出图测试。"]
+  },
+  "drawing_standard": "GB",
+  "feature_templates": ["basic_mechanical", "motor_mounting_plate"],
+  "views": ["front", "top", "left"],
+  "output": {
+    "workdir": "output/vul-motor-plate",
+    "drawing_basename": "motor-mounting-plate-live-three-view",
+    "export_formats": ["slddrw", "pdf", "dwg", "dxf"]
+  }
+}

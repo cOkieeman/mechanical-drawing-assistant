@@ -1,0 +1,88 @@
+{
+  "name": "motor_mounting_plate",
+  "description": "电机安装板/板件类零件尺寸意图，聚焦外形、厚度、中心孔、螺纹孔和长圆孔定位。",
+  "dimension_intents": [
+    {
+      "id": "plate_overall_size",
+      "label": "板件外形长宽",
+      "feature_type": "overall_size",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["overall_length", "overall_width"],
+      "coverage_mode": "all",
+      "placement_hint": "优先放在俯视图外侧，外形尺寸和孔位尺寸分层布置。"
+    },
+    {
+      "id": "plate_thickness",
+      "label": "板厚",
+      "feature_type": "thickness",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["thickness"],
+      "coverage_mode": "any",
+      "placement_hint": "优先在主视图或侧视图标注，必要时也可写入技术要求。"
+    },
+    {
+      "id": "plate_center_cutout",
+      "label": "中心孔/避让孔直径",
+      "feature_type": "center_cutout_diameter",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["center_cutout_diameter"],
+      "coverage_mode": "any",
+      "placement_hint": "中心孔优先用直径尺寸标注，避免与孔阵列尺寸重叠。"
+    },
+    {
+      "id": "plate_threaded_hole_spec",
+      "label": "螺纹孔规格和数量",
+      "feature_type": "thread_hole",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003", "GB/T 4458.5-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["thread_hole"],
+      "coverage_mode": "any",
+      "placement_hint": "优先用水平引出注写表达数量和螺纹规格。"
+    },
+    {
+      "id": "plate_threaded_hole_location",
+      "label": "螺纹孔阵列中心距和基准边定位",
+      "feature_type": "thread_hole_pattern",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": [
+        "thread_hole_edge_x",
+        "thread_hole_edge_y",
+        "thread_hole_pitch_x",
+        "thread_hole_pitch_y"
+      ],
+      "coverage_mode": "all",
+      "placement_hint": "同时表达孔组中心距和孔组到加工基准边的定位尺寸。"
+    },
+    {
+      "id": "plate_slot_spec",
+      "label": "长圆孔规格和数量",
+      "feature_type": "slot_callout",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["slot_callout"],
+      "coverage_mode": "any",
+      "placement_hint": "长圆孔规格使用引出注写，包含数量、宽度和长度。"
+    },
+    {
+      "id": "plate_slot_location",
+      "label": "长圆孔阵列中心距和基准边定位",
+      "feature_type": "slot_pattern",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["slot_edge_x", "slot_edge_y", "slot_pitch_x", "slot_pitch_y"],
+      "coverage_mode": "all",
+      "placement_hint": "同时表达槽组中心距和槽组到加工基准边的定位尺寸。"
+    }
+  ]
+}

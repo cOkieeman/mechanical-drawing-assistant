@@ -1,30 +1,165 @@
 {
+  "schema_version": 1,
+  "source_policy": {
+    "official_systems": [
+      "国家标准全文公开系统",
+      "全国标准信息公共服务平台"
+    ],
+    "verified_on": "2026-07-06",
+    "copyright_note": "本文件只保存标准索引、用途摘要和官方查询链接，不保存标准正文。正式使用应以合法取得的标准文本为准。"
+  },
   "standards": [
+    {
+      "code": "GB/T 14689-2008",
+      "title": "技术制图 图纸幅面和格式",
+      "status": "现行",
+      "category": "sheet_format",
+      "purpose": "图纸幅面、图框、格式和标题栏位置的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6C3BD0FCD8FFFE7CEC6404FB0180EA96"
+    },
+    {
+      "code": "GB/T 14690-1993",
+      "title": "技术制图 比例",
+      "status": "现行",
+      "category": "scale",
+      "purpose": "工程图比例选择、比例标注和比例复查的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=C111329A862219BCCCAAF32E14FF4CD0"
+    },
+    {
+      "code": "GB/T 14691-1993",
+      "title": "技术制图 字体",
+      "status": "现行",
+      "category": "text",
+      "purpose": "图中文字、数字、字母高度和字体规范的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=44F8A8E5B9D37004AB8445B42992B1BC"
+    },
+    {
+      "code": "GB/T 14692-2008",
+      "title": "技术制图 投影法",
+      "status": "现行",
+      "category": "projection",
+      "purpose": "第一角法、第三角法和视图方向关系的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=1072044E4F129FBC0423C354C2D6FE51"
+    },
+    {
+      "code": "GB/T 10609.1-2008",
+      "title": "技术制图 标题栏",
+      "status": "现行",
+      "category": "title_block",
+      "purpose": "标题栏格式、内容和位置复查的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=0F8577CB9AB82D5819048A87920CABAB"
+    },
+    {
+      "code": "GB/T 18229-2000",
+      "title": "CAD 工程制图规则",
+      "status": "现行",
+      "category": "cad",
+      "purpose": "CAD 图层、线型、字体、尺寸样式和电子图样管理的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F1ECC9E7F3CA3C4D075F1B1746DE62B6"
+    },
+    {
+      "code": "GB/T 4457.4-2002",
+      "title": "机械制图 图样画法 图线",
+      "status": "现行",
+      "category": "linework",
+      "purpose": "粗实线、细实线、虚线、中心线等线型线宽规则的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=5B789BF5B537CF6F89B5D743DA71D883"
+    },
+    {
+      "code": "GB/T 4457.5-2013",
+      "title": "机械制图 剖面区域的表示法",
+      "status": "现行",
+      "category": "section_hatching",
+      "purpose": "剖面线、剖面区域表达和剖视复查的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=7E48457ABE06799AEBFB9E7C8651BF63"
+    },
+    {
+      "code": "GB/T 4458.1-2002",
+      "title": "机械制图 图样画法 视图",
+      "status": "现行",
+      "category": "views",
+      "purpose": "基本视图、向视图、局部视图和视图配置的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=1B3AE836354647D640A592D775EDB683"
+    },
+    {
+      "code": "GB/T 4458.3-2013",
+      "title": "机械制图 轴测图",
+      "status": "现行",
+      "category": "axonometric",
+      "purpose": "轴测图表达、辅助说明图和展示视图的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=52098A4E44A7F21B33FB11F2609052B4"
+    },
     {
       "code": "GB/T 4458.4-2003",
       "title": "机械制图 尺寸注法",
-      "purpose": "尺寸线、尺寸界线、尺寸数字、常见尺寸注法的索引。"
+      "status": "现行",
+      "category": "dimensioning",
+      "purpose": "尺寸线、尺寸界线、尺寸数字、常见尺寸注法的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=08588A5F3FE19F16B9EE8D5D87E064D5"
     },
     {
       "code": "GB/T 4458.5-2003",
       "title": "机械制图 尺寸公差与配合注法",
-      "purpose": "公差带、配合、极限偏差等标注方式的索引。"
+      "status": "现行",
+      "category": "tolerance_fit",
+      "purpose": "公差带、配合、极限偏差和尺寸公差标注方式的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=B3D186FBD9E19A097724C5BB61AB2C4C"
+    },
+    {
+      "code": "GB/T 4458.6-2002",
+      "title": "机械制图 图样画法 剖视图和断面图",
+      "status": "现行",
+      "category": "section_views",
+      "purpose": "剖视图、断面图、剖切位置和剖视表达的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=98FC4489987C8309C89CC2816AFFCE9C"
+    },
+    {
+      "code": "GB/T 17451-1998",
+      "title": "技术制图 图样画法 视图",
+      "status": "现行",
+      "category": "views",
+      "purpose": "技术制图视图表达规则的基础索引，可与机械制图视图规则交叉引用。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=67A24B951CEF91989FE8DB3D95283155"
+    },
+    {
+      "code": "GB/T 17452-1998",
+      "title": "技术制图 图样画法 剖视图和断面图",
+      "status": "现行",
+      "category": "section_views",
+      "purpose": "技术制图剖视图和断面图表达规则的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=06E5A0FCC09804941A558A9757815E14"
     },
     {
       "code": "GB/T 1804-2000",
       "title": "一般公差 未注公差的线性和角度尺寸的公差",
-      "purpose": "未注线性尺寸和角度尺寸默认公差的索引。"
+      "status": "现行",
+      "category": "general_tolerance",
+      "purpose": "未注线性尺寸和角度尺寸默认公差的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=1BF8CFBC644315488F68433EEC2F9D58"
     },
     {
       "code": "GB/T 1184-1996",
       "title": "形状和位置公差 未注公差值",
-      "purpose": "未注形位公差默认值的索引。"
+      "status": "现行",
+      "category": "general_geometric_tolerance",
+      "purpose": "未注形状和位置公差默认值的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=3BB9267B84AF0E621CCF04C5A055280D"
     },
     {
-      "code": "GB/T 14689-2008",
-      "title": "技术制图 图纸幅面和格式",
-      "purpose": "图纸幅面、图框和标题栏格式的索引。"
+      "code": "GB/T 1182-2018",
+      "title": "产品几何技术规范（GPS） 几何公差 形状、方向、位置和跳动公差标注",
+      "status": "现行",
+      "category": "geometric_tolerance",
+      "purpose": "几何公差框格、基准、公差项目和标注方式的基础索引。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=C87A687A21B36E2F2D3A09BDF03DCA01"
+    },
+    {
+      "code": "GB/T 131-2006",
+      "title": "产品几何技术规范（GPS） 技术产品文件中表面结构的表示法",
+      "status": "现行",
+      "category": "surface_texture",
+      "purpose": "表面粗糙度、表面结构符号和技术要求表达的基础索引。",
+      "official_url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=71F772D7C281D3A7E05397BE0A0AB82A"
     }
-  ],
-  "note": "这里只保存标准索引和用途摘要，不保存标准正文。正式使用时应以购买或授权取得的标准文本为准。"
+  ]
 }

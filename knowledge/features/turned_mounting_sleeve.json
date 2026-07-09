@@ -1,0 +1,54 @@
+{
+  "name": "turned_mounting_sleeve",
+  "description": "车削为主的安装套筒/安装筒类零件尺寸意图。",
+  "dimension_intents": [
+    {
+      "id": "sleeve_overall_length",
+      "label": "套筒总长",
+      "feature_type": "overall_length",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "优先放在主视图轴向外侧，避免与台阶长度形成封闭尺寸链。"
+    },
+    {
+      "id": "sleeve_outer_diameter",
+      "label": "套筒主要外径",
+      "feature_type": "outer_diameter",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "优先在端面视图或剖视图中标注，重要配合外圆需要人工确认公差。"
+    },
+    {
+      "id": "sleeve_bore_diameter",
+      "label": "内孔直径",
+      "feature_type": "bore_diameter",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "内孔重要时优先使用剖视图表达，配合孔需要人工确认公差和粗糙度。"
+    },
+    {
+      "id": "sleeve_step_lengths",
+      "label": "台阶长度",
+      "feature_type": "step_length",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "按加工基准或装配基准串联标注，避免不必要的封闭尺寸链。"
+    },
+    {
+      "id": "sleeve_end_face_features",
+      "label": "端面孔/槽/安装特征",
+      "feature_type": "end_face_feature",
+      "required": false,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "placement_hint": "端面孔、键槽、沉孔或紧定孔应在端面视图或局部放大中表达。"
+    },
+    {
+      "id": "sleeve_section_view_review",
+      "label": "内孔和内部台阶剖视确认",
+      "feature_type": "section_view_review",
+      "required": true,
+      "standard_refs": ["GB/T 4458.1-2002", "GB/T 4458.6-2002"],
+      "placement_hint": "内孔、内台阶、配合面或隐藏轮廓重要时，应优先评估剖视图。"
+    }
+  ]
+}

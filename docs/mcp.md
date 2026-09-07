@@ -11,8 +11,19 @@ uv run mda-mcp
 - `diagnose_cad_environment`：检查 `mcp`、`pywin32`、`ezdxf`、CAD adapter 和外部参考 repo 状态。
 - `plan_drawing`：从 job JSON 生成 `drawing_plan.json`。
 - `run_drawing_pipeline`：运行 plan/export/review，默认 dry-run；live 且 DXF 标注成功时会生成 `annotation_manifest.json`。
-- `review_drawing_job`：返回 Markdown 复查报告。
+- `review_drawing_job`：返回 Markdown 复查报告；可传入 `annotation_path` 合并独立生成的 `annotation_manifest.json`。
 - `inspect_dxf`：读取 DXF，统计实体和 DIMENSION 数量。DWG 需要先用 AutoCAD/ODA/SolidWorks 导出为 DXF。
+- `inspect_solidworks_model`：读取已打开或指定路径的 SolidWorks 模型，输出包围盒、特征树摘要和显示尺寸候选。
+- `annotate_dxf_file`：对已有 DXF 运行初次标注，写出 annotated DXF 和 `annotation_manifest.json`。
+
+典型离线复盘流程：
+
+```text
+inspect_solidworks_model
+  -> inspect_dxf
+  -> annotate_dxf_file
+  -> review_drawing_job(annotation_path=...)
+```
 
 ## Codex/其他 MCP 客户端配置示例
 

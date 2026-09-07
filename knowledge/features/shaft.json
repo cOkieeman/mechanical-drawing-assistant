@@ -1,0 +1,66 @@
+{
+  "name": "shaft",
+  "description": "轴类零件尺寸意图，聚焦轴向总长、台阶、外径、端部特征和键槽/螺纹人工确认。",
+  "dimension_intents": [
+    {
+      "id": "shaft_overall_length",
+      "label": "轴总长",
+      "feature_type": "overall_length",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["overall_length"],
+      "coverage_mode": "any",
+      "placement_hint": "优先放在主视图轴向外侧，避免和分段长度形成封闭尺寸链。"
+    },
+    {
+      "id": "shaft_diameters",
+      "label": "各台阶外径",
+      "feature_type": "outer_diameter",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["outer_diameter"],
+      "coverage_mode": "any",
+      "placement_hint": "主要外径应带直径符号，配合轴颈需要人工确认公差。"
+    },
+    {
+      "id": "shaft_step_lengths",
+      "label": "各台阶轴向长度",
+      "feature_type": "step_length",
+      "required": true,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "dxf",
+      "coverage_labels": ["step_length"],
+      "coverage_mode": "any",
+      "placement_hint": "按加工基准或装配基准标注分段长度。"
+    },
+    {
+      "id": "shaft_end_features",
+      "label": "端部中心孔/螺纹/倒角",
+      "feature_type": "end_face_feature",
+      "required": false,
+      "standard_refs": ["GB/T 4458.4-2003", "GB/T 4458.5-2003"],
+      "verification": "manual",
+      "placement_hint": "端部孔、螺纹、倒角和退刀槽需要结合工艺人工确认。"
+    },
+    {
+      "id": "shaft_keyway",
+      "label": "键槽宽度、深度和位置",
+      "feature_type": "keyway",
+      "required": false,
+      "standard_refs": ["GB/T 4458.4-2003"],
+      "verification": "manual",
+      "placement_hint": "键槽通常需要断面图、局部视图或局部放大表达。"
+    },
+    {
+      "id": "shaft_detail_view_review",
+      "label": "键槽/螺纹/退刀槽局部表达确认",
+      "feature_type": "detail_view_review",
+      "required": true,
+      "standard_refs": ["GB/T 4458.1-2002", "GB/T 4458.6-2002"],
+      "verification": "manual",
+      "placement_hint": "复杂端部或键槽存在时，应评估局部放大、断面图或局部剖视。"
+    }
+  ]
+}

@@ -27,7 +27,10 @@ mechanical-drawing-assistant/
 ## 迭代入口
 
 - 当前能力和使用方式见 [README.md](../README.md)。
+- 后续开发任务书见 [development_task_book.md](development_task_book.md)。
 - 详细流程见 [workflow.md](workflow.md)。
+- 视图规划器说明见 [view_planner.md](view_planner.md)。
+- 视图复查器说明见 [view_review.md](view_review.md)。
+- 标准库说明见 [standards.md](standards.md)。
 - 后续路线见 [roadmap.md](roadmap.md)。
 - 过程记录见 [project/progress.md](project/progress.md)。
-

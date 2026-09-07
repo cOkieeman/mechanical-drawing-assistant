@@ -1,0 +1,81 @@
+{
+  "id": "GB_MECHANICAL_DRAWING",
+  "name": "GB 机械制图基础出图规则",
+  "description": "面向机加工二维工程图的本地规则入口；只保存规则索引和工程化配置，不保存标准正文。",
+  "projection": {
+    "method": "first_angle",
+    "default_views": ["front", "top", "left"],
+    "layout_rule": "front_top_below_left_right",
+    "standard_refs": ["GB/T 14692-2008", "GB/T 4458.1-2002", "GB/T 17451-1998"]
+  },
+  "sheet": {
+    "preferred_template": "gb_a3.drwdot",
+    "preferred_size": "A3",
+    "safe_margin_mm": 6,
+    "standard_refs": ["GB/T 14689-2008", "GB/T 10609.1-2008"]
+  },
+  "scale": {
+    "strategy": "fit_standard_scale_to_sheet",
+    "standard_refs": ["GB/T 14690-1993"]
+  },
+  "linework": {
+    "cad_layer_profile": "gb_cad_basic",
+    "standard_refs": ["GB/T 4457.4-2002", "GB/T 18229-2000"]
+  },
+  "view_rules": [
+    {
+      "id": "first_angle_alignment",
+      "description": "默认按第一角法配置：俯视图位于主视图下方，左视图位于主视图右侧。",
+      "standard_refs": ["GB/T 14692-2008"]
+    },
+    {
+      "id": "section_when_internal_features_are_important",
+      "description": "套筒、带孔轴类、内部台阶明显的零件应优先评估剖视图或断面图。",
+      "standard_refs": ["GB/T 4458.6-2002", "GB/T 17452-1998"]
+    },
+    {
+      "id": "avoid_unnecessary_views",
+      "description": "不重复表达已经清楚的结构；视图数量以完整、清晰、便于标注为准。",
+      "standard_refs": ["GB/T 4458.1-2002", "GB/T 17451-1998"]
+    }
+  ],
+  "dimensioning": {
+    "baseline": "first_pass_overall_and_feature_dimensions",
+    "standard_refs": ["GB/T 4458.4-2003", "GB/T 4458.5-2003"],
+    "review_rules": [
+      "overall_dimensions_present",
+      "feature_dimensions_present",
+      "avoid_duplicate_dimensions",
+      "avoid_closed_dimension_chain",
+      "dimension_text_not_overlapping_geometry"
+    ]
+  },
+  "tolerances": {
+    "standard_refs": [
+      "GB/T 1804-2000",
+      "GB/T 1184-1996",
+      "GB/T 1182-2018"
+    ],
+    "review_rules": [
+      "general_tolerance_note_present",
+      "critical_fit_dimensions_require_tolerance",
+      "datum_and_geometric_tolerance_require_manual_confirmation"
+    ]
+  },
+  "surface_texture": {
+    "standard_refs": ["GB/T 131-2006"],
+    "review_rules": [
+      "surface_texture_note_or_symbols_present_for_machined_parts",
+      "critical_machined_surfaces_require_manual_confirmation"
+    ]
+  },
+  "cad": {
+    "standard_refs": ["GB/T 18229-2000"],
+    "review_rules": [
+      "dimension_layer_present",
+      "text_height_consistent",
+      "line_types_consistent",
+      "title_block_not_overlapped"
+    ]
+  }
+}

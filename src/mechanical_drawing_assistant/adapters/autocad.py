@@ -24,6 +24,7 @@ class AutoCadAdapter:
         plan: DrawingPlan,
         dry_run: bool = True,
         solidworks_result: JsonObject | None = None,
+        model_result: JsonObject | None = None,
     ) -> JsonObject:
         if dry_run:
             return {
@@ -53,6 +54,8 @@ class AutoCadAdapter:
             dxf_path,
             output_path=output_path,
             view_outlines_m=self._view_outlines_from_solidworks(solidworks_result),
+            model_manifest=model_result,
+            sheet_info=self._sheet_info_from_solidworks(solidworks_result),
         )
         return {
             "adapter": "autocad",
@@ -86,3 +89,12 @@ class AutoCadAdapter:
         if not isinstance(inserted_views, list):
             return []
         return [view for view in inserted_views if isinstance(view, dict)]
+
+    def _sheet_info_from_solidworks(
+        self,
+        solidworks_result: JsonObject | None,
+    ) -> JsonObject | None:
+        if not isinstance(solidworks_result, dict):
+            return None
+        sheet_info = solidworks_result.get("sheet_info")
+        return sheet_info if isinstance(sheet_info, dict) else None
